@@ -1,0 +1,21 @@
+
+name: Print workflow information
+
+on:
+  push
+
+jobs:
+  print-workflow-information:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show environment
+        run: env
+
+      - name: Show OS
+        run: cat /etc/*-release
+
+      - name: Show event information
+        run: |
+          echo $GITHUB_EVENT_NAME
+          cat $GITHUB_EVENT_PATH
